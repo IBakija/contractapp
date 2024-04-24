@@ -1,0 +1,57 @@
+@use './colors.scss' as colors;
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+body {
+    background-color: colors.$primary-background-light;
+    color: colors.$primary-text-light;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: colors.$primary-background-dark;
+        color: colors.$primary-text-dark;
+    }
+}
+
+.created {
+    color: colors.$green-text-light;
+    background-color: colors.$green-background-light;
+    border: 1px solid colors.$green-border-light;
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$green-text-dark;
+        background-color: colors.$green-background-dark;
+        border-color: colors.$green-border-dark;
+    }
+}
+
+.ordered {
+    color: colors.$yellow-text-light;
+    background-color: colors.$yellow-background-light;
+    border: 1px solid colors.$yellow-border-light;
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$yellow-text-dark;
+        background-color: colors.$yellow-background-dark;
+        border-color: colors.$yellow-border-dark;
+    }
+}
+
+.delivered {
+    color: colors.$grey-text-light;
+    background-color: colors.$grey-background-light;
+    border: 1px solid colors.$grey-border-light;
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$grey-text-dark;
+        background-color: colors.$grey-background-dark;
+        border-color: colors.$grey-border-dark;
+    }
+}
