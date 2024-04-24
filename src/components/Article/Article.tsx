@@ -16,7 +16,7 @@ const Article: React.FC<Props> = (props) => {
         <div className={style.contractCard} key={item.id}>
             <h3 className={style.contractHolder}>{item.naziv}</h3>
             <div className={style.contractGrid}>
-                <p className={style.contractKey}>Dobavljač: </p>
+                <p className={style.contractKey}>dobavljac: </p>
                 <p className={style.contractValue}>{item.dobavljac}</p>
 
                 <p className={style.contractKey}>Status: </p>

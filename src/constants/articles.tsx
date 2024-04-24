@@ -2,19 +2,22 @@ export const articles = [
     {
         id: 1,
         naziv: 'Perilica posuđa ugradbena Electrolux EEA27200L',
-        dobavljač: 'Sancta Domenica',
+        dobavljac: 'Sancta Domenica',
         status: 'KREIRANO',
+        kupacId: 1,
     },
     {
         id: 2,
         naziv: 'Napa ugradbena Gorenje TH60E3X',
-        dobavljač: 'Sancta Domenica',
+        dobavljac: 'Sancta Domenica',
         status: 'NARUČENO',
+        kupacId: 3,
     },
     {
         id: 3,
         naziv: 'Ploča ugradbena kombinirana Gorenje GCE691BSC',
-        dobavljač: 'Bijela tehnika',
+        dobavljac: 'Bijela tehnika',
         status: 'ISPORUČEO',
+        kupacId: 4,
     },
 ];
