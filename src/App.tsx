@@ -1,13 +1,16 @@
 import React from 'react';
 import './global-styles/App.scss';
-import Contract from './components/Contract/Contract';
 import ContractList from './components/ContractList/ContractList';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ContractPage from './pages/ContractPage';
 
 function App() {
     return (
-        <div className="App">
-            <ContractList />
-        </div>
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contract/:id" element={<ContractPage />} />
+        </Routes>
     );
 }
 

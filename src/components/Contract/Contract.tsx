@@ -1,14 +1,6 @@
-import { Item } from '@ark-ui/react/accordion/accordion';
+import { contractData } from '../../constants/contractData';
+import { determineStatus } from '../../constants/determineStatus';
 import style from './Contract.module.scss';
-
-interface contractData {
-    id: number;
-    kupac: string;
-    broj_ugovora: string;
-    datum_akontacije: string;
-    rok_isporuke: string;
-    status: string;
-}
 
 interface Props {
     item: contractData;
@@ -18,22 +10,18 @@ const Contract: React.FC<Props> = (props) => {
     const { item } = props;
     let status = '';
 
-    switch (item.status.toLocaleLowerCase()) {
-        case 'kreirano':
-            status = 'created';
-            break;
-        case 'naručeno':
-            status = 'ordered';
-            break;
-        case 'isporučeno':
-            status = 'delivered';
-            break;
-        default:
-            status = 'created';
-    }
+    status = determineStatus(item.status);
 
     return (
-        <div className={style.contractCard}>
+        <div className={style.contractCard} key={item.id}>
+            <a
+                href={`/contract/${item.id}`}
+                aria-label={`Pregledaj ugovor ${item.kupac}`}
+                title={`Pregledaj ugovor ${item.kupac}`}
+                className={style.contractLink}
+            >
+                Otvori
+            </a>
             <h3 className={style.contractHolder}>{item.kupac}</h3>
             <div className={style.contractGrid}>
                 <p className={style.contractKey}>broj ugovora: </p>

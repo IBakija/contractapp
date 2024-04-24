@@ -15,6 +15,38 @@
     }
 }
 
+.contractHolder {
+    font-size: large;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.contractLink {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    color: colors.$text-secondary-light;
+    border: 1px solid colors.$border-light;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+        color: colors.$text-primary-light;
+        border-color: colors.$border-grey-light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$text-secondary-dark;
+
+        &:hover {
+            color: colors.$text-primary-dark;
+        }
+    }
+}
+
 .contractNumber {
     font-size: smaller;
     margin: 0;
