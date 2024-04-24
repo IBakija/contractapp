@@ -1,5 +1,5 @@
 import { articleData } from '../../constants/articleData';
-import { determineStatus } from '../../constants/determineStatus';
+import { determineStatus } from '../../functions/determineStatus';
 import style from './Article.module.scss';
 
 interface Props {
