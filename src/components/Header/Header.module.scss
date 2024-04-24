@@ -1,0 +1,19 @@
+@use '../../global-styles/colors' as colors;
+
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: colors.$background-secondary-light;
+    border-bottom: 1px solid colors.$border-light;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: colors.$background-secondary-dark;
+        border-color: colors.$border-dark;
+    }
+}
+
+.nav {
+    max-width: 1200px;
+}

@@ -4,8 +4,8 @@ import './global-styles/index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import ContractPage from './pages/ContractPage';
+import HomePage from './pages/Homepage/HomePage';
+import ContractPage from './pages/ContractPage/ContractPage';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
