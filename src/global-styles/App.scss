@@ -11,47 +11,47 @@ body {
 }
 
 body {
-    background-color: colors.$primary-background-light;
-    color: colors.$primary-text-light;
+    background-color: colors.$background-primary-light;
+    color: colors.$text-primary-light;
 
     @media (prefers-color-scheme: dark) {
-        background-color: colors.$primary-background-dark;
-        color: colors.$primary-text-dark;
+        background-color: colors.$background-primary-dark;
+        color: colors.$text-primary-dark;
     }
 }
 
 .created {
-    color: colors.$green-text-light;
-    background-color: colors.$green-background-light;
-    border: 1px solid colors.$green-border-light;
+    color: colors.$text-green-light;
+    background-color: colors.$background-green-light;
+    border: 1px solid colors.$border-green-light;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$green-text-dark;
-        background-color: colors.$green-background-dark;
-        border-color: colors.$green-border-dark;
+        color: colors.$text-green-dark;
+        background-color: colors.$background-green-dark;
+        border-color: colors.$border-green-dark;
     }
 }
 
 .ordered {
-    color: colors.$yellow-text-light;
-    background-color: colors.$yellow-background-light;
-    border: 1px solid colors.$yellow-border-light;
+    color: colors.$text-yellow-light;
+    background-color: colors.$background-yellow-light;
+    border: 1px solid colors.$border-yellow-light;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$yellow-text-dark;
-        background-color: colors.$yellow-background-dark;
-        border-color: colors.$yellow-border-dark;
+        color: colors.$text-yellow-dark;
+        background-color: colors.$background-yellow-dark;
+        border-color: colors.$border-yellow-dark;
     }
 }
 
 .delivered {
-    color: colors.$grey-text-light;
-    background-color: colors.$grey-background-light;
-    border: 1px solid colors.$grey-border-light;
+    color: colors.$text-grey-light;
+    background-color: colors.$background-grey-light;
+    border: 1px solid colors.$border-grey-light;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$grey-text-dark;
-        background-color: colors.$grey-background-dark;
-        border-color: colors.$grey-border-dark;
+        color: colors.$text-grey-dark;
+        background-color: colors.$background-grey-dark;
+        border-color: colors.$border-grey-dark;
     }
 }

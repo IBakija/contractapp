@@ -4,30 +4,24 @@
     width: 100%;
     max-width: 300px;
     padding: 30px;
-    background-color: colors.$secondary-background-light;
+    background-color: colors.$background-secondary-light;
     border: 1px solid colors.$border-light;
     border-radius: 3px;
+    position: relative;
 
     @media (prefers-color-scheme: dark) {
-        background-color: colors.$secondary-background-dark;
+        background-color: colors.$background-secondary-dark;
         border-color: colors.$border-dark;
     }
-}
-
-.contractHolder {
-    font-size: large;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 30px;
 }
 
 .contractNumber {
     font-size: smaller;
     margin: 0;
-    color: colors.$secondary-text-light;
+    color: colors.$text-secondary-light;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$secondary-text-dark;
+        color: colors.$text-secondary-dark;
     }
 }
 
@@ -39,20 +33,20 @@
 }
 
 .contractKey {
-    color: colors.$secondary-text-light;
+    color: colors.$text-secondary-light;
     margin: 0;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$secondary-text-dark;
+        color: colors.$text-secondary-dark;
     }
 }
 
 .contractValue {
-    color: colors.$primary-text-light;
+    color: colors.$text-primary-light;
     margin: 0;
 
     @media (prefers-color-scheme: dark) {
-        color: colors.$primary-text-dark;
+        color: colors.$text-primary-dark;
     }
 }
 
