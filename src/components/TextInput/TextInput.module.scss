@@ -22,6 +22,20 @@
         outline: none;
     }
 
+    &[type='date'] {
+        cursor: text;
+        opacity: 0.6;
+        transition: all 0.15s ease-in-out;
+
+        &::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
     @media (prefers-color-scheme: dark) {
         background-color: colors.$background-primary-dark;
         border-color: colors.$border-dark;
@@ -38,6 +52,10 @@
         &:active,
         &:focus-visible {
             border-color: colors.$border-focus-dark;
+        }
+
+        &[type='date'] {
+            color-scheme: dark;
         }
     }
 }

@@ -1,0 +1,35 @@
+@use '../../shared/global-styles/colors' as colors;
+
+.formSection {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 40px auto 0;
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid colors.$border-light;
+    background-color: colors.$background-secondary-light;
+
+    input {
+        width: 100%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        border-color: colors.$border-dark;
+        background-color: colors.$background-primary-dark;
+    }
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: smaller;
+}

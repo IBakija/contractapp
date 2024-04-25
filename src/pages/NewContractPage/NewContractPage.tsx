@@ -1,24 +1,15 @@
+import { useState } from 'react';
+
 import style from './NewContractPage.module.scss';
 import Layout from '../Layout';
 import TextInput from '../../components/TextInput/TextInput';
 import InputLabel from '../../components/InputLabel/InputLabel';
 import Title from '../../components/Title/Title';
-import { contracts } from '../../shared/constants/contracts';
-import { contractData } from '../../shared/types/contractData';
-import { useState } from 'react';
 
-// interface ContractData {
-// 	item: contractData;
-// }
+import { contractData } from '../../shared/types/contractData';
 
 const NewContractPage: React.FC = () => {
-    const [inputs, setInputs] = useState({});
-
-    //   const handleChange = (event: React.FormEvent) => {
-    //     const name = event.target.name;
-    //     const value = event.target.value;
-    //     setInputs(values => ({...values, [name]: value}))
-    //   }
+    const contracts = JSON.parse(localStorage.getItem('contracts') || '');
 
     function handleOnSubmit(e: React.SyntheticEvent) {
         e.preventDefault();
@@ -29,20 +20,23 @@ const NewContractPage: React.FC = () => {
             deliveryDate: { value: Date };
         };
 
-        const maxId = contracts.reduce((prev, current) =>
-            prev && prev.id > current.id ? prev : current
+        const maxId = contracts.reduce(
+            (prev: contractData, current: contractData) =>
+                prev && prev.id > current.id ? prev : current
         ).id;
 
-        let x: number[] = [];
-        contracts.map((c) => x.push(parseInt(c.broj_ugovora.split('/')[0])));
+        let contractNumbers: number[] = [];
+        contracts.map((c: contractData) =>
+            contractNumbers.push(parseInt(c.broj_ugovora.split('/')[0]))
+        );
 
-        const maxUgovor = x.reduce((prev, current) =>
+        const maxContract = contractNumbers.reduce((prev, current) =>
             prev > current ? prev : current
         );
 
         const newContract: contractData = {
             id: maxId + 1,
-            broj_ugovora: `${maxUgovor + 1}/${new Date().getFullYear()}`,
+            broj_ugovora: `${maxContract + 1}/${new Date().getFullYear()}`,
             kupac: target.fullName.value,
             datum_akontacije: target.paymentDate.value.toString(),
             rok_isporuke: target.deliveryDate.value.toString(),
@@ -56,40 +50,60 @@ const NewContractPage: React.FC = () => {
         oldContracts.push(newContract);
 
         localStorage.setItem('contracts', JSON.stringify(oldContracts));
+
+        (e.target as HTMLFormElement).reset();
     }
 
     return (
         <Layout>
-            <section className={style.nav}>
+            <section className={style.formSection}>
                 <Title tag="h1">Kreiraj novi ugovor</Title>
-                <form onSubmit={handleOnSubmit}>
+                <form
+                    onSubmit={handleOnSubmit}
+                    className={style.form}
+                    id="forn"
+                >
                     <div>
-                        <InputLabel htmlFor="fullName">Ime kupca</InputLabel>
-                        <TextInput type="text" name="fullName" id="fullName" />
+                        <InputLabel htmlFor="fullName" className={style.label}>
+                            Ime kupca*
+                        </InputLabel>
+                        <TextInput
+                            type="text"
+                            name="fullName"
+                            id="fullName"
+                            placeholder="Vanja Horvat"
+                            required={true}
+                        />
                     </div>
                     <div>
-                        <InputLabel htmlFor="paymentDate">
-                            Datum akontacije
+                        <InputLabel
+                            htmlFor="paymentDate"
+                            className={style.label}
+                        >
+                            Datum akontacije*
                         </InputLabel>
                         <TextInput
                             type="date"
                             name="paymentDate"
                             id="paymentDate"
+                            required={true}
                         />
                     </div>
                     <div>
-                        <InputLabel htmlFor="deliveryDate">
-                            Rok isporuke
+                        <InputLabel
+                            htmlFor="deliveryDate"
+                            className={style.label}
+                        >
+                            Rok isporuke*
                         </InputLabel>
                         <TextInput
                             type="date"
                             name="deliveryDate"
                             id="deliveryDate"
+                            required={true}
                         />
                     </div>
-                    <div>
-                        <button>Kreiraj</button>
-                    </div>
+                    <button>Kreiraj</button>
                 </form>
             </section>
         </Layout>
