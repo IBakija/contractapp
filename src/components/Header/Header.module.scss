@@ -1,4 +1,4 @@
-@use '../../global-styles/colors' as colors;
+@use '../../shared/global-styles/colors' as colors;
 
 .header {
     padding: 20px;
@@ -17,4 +17,7 @@
 .nav {
     max-width: 1080px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }

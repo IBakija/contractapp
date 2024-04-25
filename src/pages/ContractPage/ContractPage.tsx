@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { contracts } from '../../shared/constants/contracts';
 import Layout from '../Layout';
-import ArticleList from '../../components/ArticleList/ArticleList';
+import ArticleList from '../../widgets/ArticleList/ArticleList';
 import { determineStatus } from '../../features/functions/determineStatus';
 import { formatStringDate } from '../../features/functions/formatStringDate';
 import Title from '../../components/Title/Title';

@@ -6,6 +6,7 @@ const Header: React.FC = () => {
         <header className={style.header}>
             <nav className={style.nav}>
                 <Link to="/">Početna</Link>
+                <Link to="/create-contract">Kreiraj novi ugovor</Link>
             </nav>
         </header>
     );

@@ -1,3 +1,5 @@
+import TextInput from '../../components/TextInput/TextInput';
+
 interface Props {
     onInputChange: Function;
 }
@@ -10,7 +12,9 @@ const FilterByName: React.FC<
         onInputChange(text);
     };
 
-    return <input {...rest} onChange={(e) => handleChange(e.target.value)} />;
+    return (
+        <TextInput {...rest} onChange={(e) => handleChange(e.target.value)} />
+    );
 };
 
 export default FilterByName;

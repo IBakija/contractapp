@@ -26,6 +26,7 @@ const ContractList: React.FC = () => {
         { label: 'Neaktivni', value: 'inactive' },
     ];
 
+    // TODO: pagination
     return (
         <>
             <div className={style.filterContainer}>
@@ -58,7 +59,6 @@ const ContractList: React.FC = () => {
                                 : true)
                     )
                     .map((contract, i) => {
-                        console.log(contract);
                         return (
                             <Contract
                                 item={contract}

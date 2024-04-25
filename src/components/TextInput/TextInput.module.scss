@@ -1,0 +1,43 @@
+@use '../../shared/global-styles/colors' as colors;
+
+.input {
+    background-color: colors.$background-primary-light;
+    border: 1px solid colors.$border-light;
+    transition: all 0.2s ease-in-out;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: colors.$text-primary-light;
+
+    &::placeholder {
+        color: colors.$text-muted-light;
+    }
+
+    &:hover {
+        border-color: colors.$border-hover-light;
+    }
+
+    &:active,
+    &:focus-visible {
+        border-color: colors.$border-focus-light;
+        outline: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: colors.$background-primary-dark;
+        border-color: colors.$border-dark;
+        color: colors.$text-primary-dark;
+
+        &::placeholder {
+            color: colors.$text-muted-dark;
+        }
+
+        &:hover {
+            border-color: colors.$border-hover-dark;
+        }
+
+        &:active,
+        &:focus-visible {
+            border-color: colors.$border-focus-dark;
+        }
+    }
+}
