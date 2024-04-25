@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 import style from './ContractList.module.scss';
-import Contract from '../Contract/Contract';
-import FilterByName from '../Filters/FilterByName';
+import Contract from '../../entities/Contract/Contract';
+import FilterByName from '../../features/filters/FilterByName';
 
-import { contracts } from '../../constants/contracts';
-import FilterByActivity from '../Filters/FilterByActivity';
+import { contracts } from '../../shared/constants/contracts';
+import FilterByActivity from '../../features/filters/FilterByActivity';
 
 const ContractList: React.FC = () => {
     const [activity, setActivity] = useState('all');
@@ -57,8 +57,14 @@ const ContractList: React.FC = () => {
                                     : contract.status === 'ISPORUČENO'
                                 : true)
                     )
-                    .map((contract) => {
-                        return <Contract item={contract} />;
+                    .map((contract, i) => {
+                        console.log(contract);
+                        return (
+                            <Contract
+                                item={contract}
+                                key={contract.id.toString()}
+                            />
+                        );
                     })}
             </div>
         </>

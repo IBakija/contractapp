@@ -1,6 +1,6 @@
-import { articleData } from '../../constants/articleData';
-import { determineStatus } from '../../functions/determineStatus';
-import Title from '../Title/Title';
+import { articleData } from '../../shared/constants/articleData';
+import { determineStatus } from '../../features/functions/determineStatus';
+import Title from '../../components/Title/Title';
 import style from './Article.module.scss';
 
 interface Props {

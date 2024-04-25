@@ -46,6 +46,7 @@ h2 {
 a {
     color: colors.$text-secondary-light;
     text-decoration-color: transparent;
+    text-underline-offset: 2px;
     transition: all 0.15s ease-in-out;
 
     &:hover {

@@ -1,4 +1,4 @@
-import ContractList from '../../components/ContractList/ContractList';
+import ContractList from '../../widgets/ContractList/ContractList';
 import Title from '../../components/Title/Title';
 import Layout from '../Layout';
 import style from './HomePage.module.scss';

@@ -1,6 +1,6 @@
-import Article from '../Article/Article';
+import Article from '../../entities/Article/Article';
 import style from './ArticleList.module.scss';
-import { articles } from '../../constants/articles';
+import { articles } from '../../shared/constants/articles';
 
 interface Props {
     contractId: number | undefined;

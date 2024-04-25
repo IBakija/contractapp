@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom';
-import { contractData } from '../../constants/contractData';
-import { determineStatus } from '../../functions/determineStatus';
+import { contractData } from '../../shared/constants/contractData';
+import { determineStatus } from '../../features/functions/determineStatus';
 import style from './Contract.module.scss';
-import { formatStringDate } from '../../functions/formatStringDate';
-import Title from '../Title/Title';
+import { formatStringDate } from '../../features/functions/formatStringDate';
+import Title from '../../components/Title/Title';
 
 interface Props {
     item: contractData;
 }
 
 const Contract: React.FC<Props> = (props) => {
-    const { item } = props;
+    const { item, ...rest } = props;
     let status = '';
 
     status = determineStatus(item.status);
 
     return (
-        <div className={style.contractCard} key={item.id}>
+        <div className={style.contractCard} {...rest}>
             <Link
                 to={`/contract/${item.id}`}
                 aria-label={`Pregledaj ugovor ${item.kupac}`}
