@@ -1,11 +1,17 @@
 import ContractList from '../../components/ContractList/ContractList';
+import Title from '../../components/Title/Title';
 import Layout from '../Layout';
+import style from './HomePage.module.scss';
 
 const HomePage: React.FC = () => {
     return (
         <Layout>
-            <h1>Kupoprodajni ugovori</h1>
-            <ContractList />
+            <section>
+                <Title tag="h1" className={style.h1}>
+                    Kupoprodajni ugovori
+                </Title>
+                <ContractList />
+            </section>
         </Layout>
     );
 };

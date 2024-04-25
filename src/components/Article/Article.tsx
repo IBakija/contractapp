@@ -1,5 +1,6 @@
 import { articleData } from '../../constants/articleData';
 import { determineStatus } from '../../functions/determineStatus';
+import Title from '../Title/Title';
 import style from './Article.module.scss';
 
 interface Props {
@@ -14,7 +15,9 @@ const Article: React.FC<Props> = (props) => {
 
     return (
         <div className={style.contractCard} key={item.id}>
-            <h3 className={style.contractHolder}>{item.naziv}</h3>
+            <Title tag="h2" className={style.contractHolder}>
+                {item.naziv}
+            </Title>
             <div className={style.contractGrid}>
                 <p className={style.contractKey}>dobavljac: </p>
                 <p className={style.contractValue}>{item.dobavljac}</p>

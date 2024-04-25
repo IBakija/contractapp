@@ -3,6 +3,7 @@ import { contractData } from '../../constants/contractData';
 import { determineStatus } from '../../functions/determineStatus';
 import style from './Contract.module.scss';
 import { formatStringDate } from '../../functions/formatStringDate';
+import Title from '../Title/Title';
 
 interface Props {
     item: contractData;
@@ -24,7 +25,9 @@ const Contract: React.FC<Props> = (props) => {
             >
                 Otvori
             </Link>
-            <h3 className={style.contractHolder}>{item.kupac}</h3>
+            <Title tag="h2" className={style.contractHolder}>
+                {item.kupac}
+            </Title>
             <div className={style.contractGrid}>
                 <p className={style.contractKey}>broj ugovora: </p>
                 <p className={style.contractValue}>{item.broj_ugovora}</p>

@@ -20,6 +20,49 @@ body {
     }
 }
 
+section {
+    max-width: 1200px;
+    padding: 40px 60px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+h2 {
+    font-size: larger;
+}
+
+a {
+    color: colors.$text-secondary-light;
+    text-decoration-color: transparent;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+        color: colors.$text-primary-light;
+        text-decoration-color: colors.$text-primary-light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$text-secondary-dark;
+
+        &:hover {
+            color: colors.$text-primary-dark;
+            text-decoration-color: colors.$text-primary-dark;
+        }
+    }
+}
+
 .created {
     color: colors.$text-green-light;
     background-color: colors.$background-green-light;

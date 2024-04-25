@@ -5,6 +5,8 @@ import Layout from '../Layout';
 import ArticleList from '../../components/ArticleList/ArticleList';
 import { determineStatus } from '../../functions/determineStatus';
 import { formatStringDate } from '../../functions/formatStringDate';
+import Title from '../../components/Title/Title';
+import style from './ContractPage.module.scss';
 
 const ContractPage: React.FC = () => {
     const { id } = useParams();
@@ -25,7 +27,9 @@ const ContractPage: React.FC = () => {
         <Layout>
             <section>
                 <div>
-                    <h1>Ugovor {specificProduct?.kupac}</h1>
+                    <Title tag="h1" className={style.h1}>
+                        Ugovor {specificProduct?.kupac}
+                    </Title>
                     <span className={`${status}`}>
                         {' '}
                         {specificProduct?.status}
