@@ -9,6 +9,8 @@ import Title from '../../components/Title/Title';
 import { contractData } from '../../shared/types/contractData';
 
 const NewContractPage: React.FC = () => {
+    const [submitted, setSubmitted] = useState(false);
+
     const contracts = JSON.parse(localStorage.getItem('contracts') || '');
 
     function handleOnSubmit(e: React.SyntheticEvent) {
@@ -52,6 +54,9 @@ const NewContractPage: React.FC = () => {
         localStorage.setItem('contracts', JSON.stringify(oldContracts));
 
         (e.target as HTMLFormElement).reset();
+        setSubmitted(true);
+
+        setTimeout(() => setSubmitted(false), 6000);
     }
 
     return (
@@ -105,6 +110,14 @@ const NewContractPage: React.FC = () => {
                     </div>
                     <button>Kreiraj</button>
                 </form>
+
+                {submitted ? (
+                    <div className={style.infoAlert}>
+                        Uspješno kreiran ugovor!
+                    </div>
+                ) : (
+                    <></>
+                )}
             </section>
         </Layout>
     );

@@ -33,3 +33,27 @@
     margin-bottom: 5px;
     font-size: smaller;
 }
+
+.infoAlert {
+    padding: 10px 20px;
+    background-color: colors.$background-green-light;
+    color: colors.$text-green-light;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 3px;
+    animation: fadeOut 1s ease-in-out 3s 1 normal forwards;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: colors.$background-green-dark;
+        color: colors.$text-green-dark;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
