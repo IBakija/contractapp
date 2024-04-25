@@ -29,7 +29,7 @@ const Contract: React.FC<Props> = (props) => {
                 {item.kupac}
             </Title>
             <div className={style.contractGrid}>
-                <p className={style.contractKey}>broj ugovora: </p>
+                <p className={style.contractKey}>Broj ugovora: </p>
                 <p className={style.contractValue}>{item.broj_ugovora}</p>
 
                 <p className={style.contractKey}>Rok isporuke: </p>

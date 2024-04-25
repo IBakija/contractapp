@@ -13,7 +13,7 @@ const NewContractPage: React.FC = () => {
 
     const contracts = JSON.parse(localStorage.getItem('contracts') || '');
 
-    function handleOnSubmit(e: React.SyntheticEvent) {
+    function handleSubmit(e: React.SyntheticEvent) {
         e.preventDefault();
 
         const target = e.target as typeof e.target & {
@@ -56,18 +56,14 @@ const NewContractPage: React.FC = () => {
         (e.target as HTMLFormElement).reset();
         setSubmitted(true);
 
-        setTimeout(() => setSubmitted(false), 6000);
+        setTimeout(() => setSubmitted(false), 4000);
     }
 
     return (
         <Layout>
             <section className={style.formSection}>
                 <Title tag="h1">Kreiraj novi ugovor</Title>
-                <form
-                    onSubmit={handleOnSubmit}
-                    className={style.form}
-                    id="forn"
-                >
+                <form onSubmit={handleSubmit} className={style.form} id="forn">
                     <div>
                         <InputLabel htmlFor="fullName" className={style.label}>
                             Ime kupca*

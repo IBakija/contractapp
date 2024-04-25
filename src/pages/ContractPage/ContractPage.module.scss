@@ -1,3 +1,63 @@
-.h1 {
-    margin-bottom: 60px;
+@use '../../shared/global-styles/colors' as colors;
+
+.hero {
+    border-bottom: 1px solid colors.$border-light;
+
+    @media (prefers-color-scheme: dark) {
+        border-color: colors.$border-dark;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.contractStatus {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contractKey {
+    color: colors.$text-secondary-light;
+    margin: 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$text-secondary-dark;
+    }
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: smaller;
+}
+
+.contractFormContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-top: 20px;
+    border-top: 1px solid colors.$border-light;
+
+    @media (prefers-color-scheme: dark) {
+        border-color: colors.$border-dark;
+    }
+
+    p {
+        margin: 0 0 5px;
+        font-size: smaller;
+    }
 }

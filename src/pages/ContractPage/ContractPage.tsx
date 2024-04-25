@@ -1,54 +1,140 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+
 import Layout from '../Layout';
 import ArticleList from '../../widgets/ArticleList/ArticleList';
-import { determineStatus } from '../../features/functions/determineStatus';
-import { formatStringDate } from '../../features/functions/formatStringDate';
 import Title from '../../components/Title/Title';
 import style from './ContractPage.module.scss';
+import TextInput from '../../components/TextInput/TextInput';
+import InputLabel from '../../components/InputLabel/InputLabel';
+
+import { determineStatus } from '../../features/functions/determineStatus';
+import { formatStringDate } from '../../features/functions/formatStringDate';
 import { contractData } from '../../shared/types/contractData';
 
+// TODO: redirect on non-existing id
 const ContractPage: React.FC = () => {
     const { id } = useParams();
 
     const contracts = JSON.parse(localStorage.getItem('contracts') || '');
+
     const specificProduct = contracts.find(
         (contract: contractData) => String(contract.id) === id
     );
 
-    if (!specificProduct) {
-        return (
-            <section>
-                <h1>Ooops ovaj ugovor ne postoji</h1>
-                <p>Molimo vratite se na početnu stranicu</p>
-                <a href="/">Početna</a>
-            </section>
-        );
-    }
-    const status = determineStatus(specificProduct.status);
+    const [deliveryDate, setDeliveryDate] = useState(
+        specificProduct.rok_isporuke
+    );
 
+    const [status, setStatus] = useState(specificProduct.status);
+
+    function handleSubmit(e: React.SyntheticEvent) {
+        e.preventDefault();
+
+        const target = e.target as typeof e.target & {
+            deliveryDate: { value: Date };
+        };
+
+        contracts.find(
+            (c: contractData) => c.id === specificProduct.id
+        ).rok_isporuke = target.deliveryDate.value.toString();
+
+        localStorage.setItem('contracts', JSON.stringify(contracts));
+
+        setDeliveryDate(target.deliveryDate.value.toString());
+    }
+
+    let statusButton;
+
+    switch (determineStatus(specificProduct.status)) {
+        case 'created':
+            statusButton = (
+                <div>
+                    <p>Izmjeni u naručeno</p>
+                    <button onClick={handleClick}>Izmjeni</button>
+                </div>
+            );
+            break;
+        case 'ordered':
+            statusButton = (
+                <div>
+                    <p>Izmjeni u dostavljeno</p>
+                    <button onClick={handleClick}>Izmjeni</button>
+                </div>
+            );
+            break;
+        default:
+            statusButton = <></>;
+    }
+
+    function handleClick(e: React.SyntheticEvent) {
+        e.preventDefault();
+
+        if (determineStatus(specificProduct.status) === 'created') {
+            contracts.find(
+                (c: contractData) => c.id === specificProduct.id
+            ).status = 'NARUČENO';
+        } else if (determineStatus(specificProduct.status) === 'ordered') {
+            contracts.find(
+                (c: contractData) => c.id === specificProduct.id
+            ).status = 'ISPORUČENO';
+        }
+
+        localStorage.setItem('contracts', JSON.stringify(contracts));
+        setStatus(specificProduct.status);
+    }
     return (
         <Layout>
-            <section>
-                <div>
+            <section className={style.hero}>
+                <div className={style.titleContainer}>
                     <Title tag="h1" className={style.h1}>
                         Ugovor {specificProduct?.kupac}
                     </Title>
-                    <span className={`${status}`}>
+                    <span
+                        className={`${style.contractStatus} ${determineStatus(
+                            status
+                        )}`}
+                    >
                         {' '}
                         {specificProduct?.status}
                     </span>
                 </div>
-                <p>Broj ugovora: {specificProduct?.broj_ugovora}</p>
                 <p>
-                    Datum akontacije:{' '}
+                    <span className={style.contractKey}>Broj ugovora: </span>
+                    {specificProduct?.broj_ugovora}
+                </p>
+                <p>
+                    <span className={style.contractKey}>
+                        Datum akontacije:{' '}
+                    </span>
                     {formatStringDate(specificProduct?.datum_akontacije)}
                 </p>
                 <p>
-                    Rok isporuke:{' '}
-                    {formatStringDate(specificProduct?.rok_isporuke)}
+                    <span className={style.contractKey}>Rok isporuke: </span>
+                    {formatStringDate(deliveryDate)}
                 </p>
-                <hr />
+                {determineStatus(specificProduct.status) !== 'delivered' ? (
+                    <div className={style.contractFormContainer}>
+                        <form onSubmit={handleSubmit}>
+                            <InputLabel
+                                htmlFor="deliveryDate"
+                                className={style.label}
+                            >
+                                Izmjeni rok isporuke:
+                            </InputLabel>
+                            <TextInput
+                                type="date"
+                                name="deliveryDate"
+                                id="deliveryDate"
+                                required={true}
+                            />
+                            <button>Izmjeni</button>
+                        </form>
+                        {statusButton}
+                    </div>
+                ) : (
+                    <></>
+                )}
             </section>
             <section>
                 <ArticleList

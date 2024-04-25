@@ -1,7 +1,7 @@
 import { articleData } from '../../shared/types/articleData';
 import { determineStatus } from '../../features/functions/determineStatus';
 import Title from '../../components/Title/Title';
-import style from './Article.module.scss';
+import style from '../Contract/Contract.module.scss';
 
 interface Props {
     item: articleData;

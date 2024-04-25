@@ -1,3 +1,5 @@
+@use '../../shared/global-styles/colors' as colors;
+
 .contractList {
     max-width: 1200px;
     display: flex;
@@ -8,6 +10,25 @@
 
 .filterContainer {
     display: flex;
-    gap: 40px;
+    max-width: 100%;
+    gap: 10px 20px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    select {
+        background-color: colors.$background-primary-light;
+        color: colors.$text-primary-light;
+        border: 1px solid colors.$border-light;
+        border-radius: 3px;
+        transition: all 0.2s ease-in-out;
+        padding: 5px;
+        cursor: pointer;
+
+        @media (prefers-color-scheme: dark) {
+            color-scheme: dark;
+            background-color: colors.$background-primary-dark;
+            border-color: colors.$border-dark;
+            color: colors.$text-primary-dark;
+        }
+    }
 }
