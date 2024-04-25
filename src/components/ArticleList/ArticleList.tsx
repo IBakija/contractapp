@@ -12,7 +12,7 @@ const ArticleList: React.FC<Props> = (props) => {
     return (
         <div className={style.contractList}>
             {articles
-                .filter((a) => a.kupacId === contractId)
+                .filter((a) => a.id === contractId)
                 .map((article) => {
                     return <Article item={article} />;
                 })}
