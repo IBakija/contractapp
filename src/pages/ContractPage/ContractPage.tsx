@@ -1,16 +1,20 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { contracts } from '../../shared/constants/contracts';
 import Layout from '../Layout';
 import ArticleList from '../../widgets/ArticleList/ArticleList';
 import { determineStatus } from '../../features/functions/determineStatus';
 import { formatStringDate } from '../../features/functions/formatStringDate';
 import Title from '../../components/Title/Title';
 import style from './ContractPage.module.scss';
+import { contractData } from '../../shared/types/contractData';
 
 const ContractPage: React.FC = () => {
     const { id } = useParams();
-    const specificProduct = contracts.find((el) => String(el.id) === id);
+
+    const contracts = JSON.parse(localStorage.getItem('contracts') || '');
+    const specificProduct = contracts.find(
+        (contract: contractData) => String(contract.id) === id
+    );
 
     if (!specificProduct) {
         return (
@@ -37,7 +41,7 @@ const ContractPage: React.FC = () => {
                 </div>
                 <p>Broj ugovora: {specificProduct?.broj_ugovora}</p>
                 <p>
-                    datum akontacije:{' '}
+                    Datum akontacije:{' '}
                     {formatStringDate(specificProduct?.datum_akontacije)}
                 </p>
                 <p>

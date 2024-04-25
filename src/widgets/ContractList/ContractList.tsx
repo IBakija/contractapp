@@ -4,8 +4,8 @@ import style from './ContractList.module.scss';
 import Contract from '../../entities/Contract/Contract';
 import FilterByName from '../../features/filters/FilterByName';
 
-import { contracts } from '../../shared/constants/contracts';
 import FilterByActivity from '../../features/filters/FilterByActivity';
+import { contractData } from '../../shared/types/contractData';
 
 const ContractList: React.FC = () => {
     const [activity, setActivity] = useState('all');
@@ -17,6 +17,8 @@ const ContractList: React.FC = () => {
     const onSelectChangeHandler = (newText: string) => {
         setActivity(newText);
     };
+
+    const contracts = JSON.parse(localStorage.getItem('contracts') || '');
 
     type OptionItem = { label: string; value: string; disabled?: boolean };
 
@@ -45,7 +47,7 @@ const ContractList: React.FC = () => {
             <div className={style.contractList}>
                 {contracts
                     .filter(
-                        (contract) =>
+                        (contract: contractData) =>
                             (name !== undefined && name !== ''
                                 ? contract.kupac
                                       .toLocaleLowerCase()
@@ -58,7 +60,7 @@ const ContractList: React.FC = () => {
                                     : contract.status === 'ISPORUČENO'
                                 : true)
                     )
-                    .map((contract, i) => {
+                    .map((contract: contractData) => {
                         return (
                             <Contract
                                 item={contract}

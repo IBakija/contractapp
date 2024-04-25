@@ -4,7 +4,7 @@ import TextInput from '../../components/TextInput/TextInput';
 import InputLabel from '../../components/InputLabel/InputLabel';
 import Title from '../../components/Title/Title';
 import { contracts } from '../../shared/constants/contracts';
-import { contractData } from '../../shared/constants/contractData';
+import { contractData } from '../../shared/types/contractData';
 import { useState } from 'react';
 
 // interface ContractData {
@@ -40,16 +40,22 @@ const NewContractPage: React.FC = () => {
             prev > current ? prev : current
         );
 
-        const newContract = {
+        const newContract: contractData = {
             id: maxId + 1,
             broj_ugovora: `${maxUgovor + 1}/${new Date().getFullYear()}`,
             kupac: target.fullName.value,
-            datum_akontacije: target.paymentDate.value,
-            rok_isporuke: target.deliveryDate.value,
+            datum_akontacije: target.paymentDate.value.toString(),
+            rok_isporuke: target.deliveryDate.value.toString(),
+            status: 'KREIRANO',
         };
-        localStorage.setItem('newContract', JSON.stringify(newContract));
 
-        console.log(JSON.parse(localStorage.getItem('newContract') || ''));
+        let oldContracts: Array<contractData> = JSON.parse(
+            localStorage.getItem('contracts') || ''
+        );
+
+        oldContracts.push(newContract);
+
+        localStorage.setItem('contracts', JSON.stringify(oldContracts));
     }
 
     return (

@@ -1,4 +1,4 @@
-import { articleData } from '../../shared/constants/articleData';
+import { articleData } from '../../shared/types/articleData';
 import { determineStatus } from '../../features/functions/determineStatus';
 import Title from '../../components/Title/Title';
 import style from './Article.module.scss';

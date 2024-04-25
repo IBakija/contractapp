@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { contractData } from '../../shared/constants/contractData';
+import { contractData } from '../../shared/types/contractData';
 import { determineStatus } from '../../features/functions/determineStatus';
 import style from './Contract.module.scss';
 import { formatStringDate } from '../../features/functions/formatStringDate';
