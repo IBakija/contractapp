@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Layout from '../Layout';
 import ArticleList from '../../widgets/ArticleList/ArticleList';
