@@ -5,9 +5,9 @@ import Layout from '../Layout';
 import TextInput from '../../components/TextInput/TextInput';
 import InputLabel from '../../components/InputLabel/InputLabel';
 import Title from '../../components/Title/Title';
+import Button from '../../components/Button/Button';
 
 import { contractData } from '../../shared/types/contractData';
-import Button from '../../components/Button/Button';
 
 const NewContractPage: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -33,6 +33,10 @@ const NewContractPage: React.FC = () => {
             contractNumbers.push(parseInt(c.broj_ugovora.split('/')[0]))
         );
 
+        /* Why use .reduce() instead of taking the last object in array? Because using ids as incrementing numbers is unsafe and I assume that real project would use uuids which are randomly generated.
+		So one cannot search for last contract by taking the last object in a list unless it is delivered sorted by "created date".
+		Admittedly, this decision makes no sense when it comes to ids, but I wanted to keep consistency. 
+         */
         const maxContract = contractNumbers.reduce((prev, current) =>
             prev > current ? prev : current
         );

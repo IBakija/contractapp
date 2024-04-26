@@ -1,7 +1,8 @@
-import { articleData } from '../../shared/types/articleData';
-import { determineStatus } from '../../features/functions/determineStatus';
 import Title from '../../components/Title/Title';
 import style from '../Contract/Contract.module.scss';
+
+import { articleData } from '../../shared/types/articleData';
+import { determineStatus } from '../../features/functions/determineStatus';
 
 interface Props {
     item: articleData;
@@ -19,7 +20,7 @@ const Article: React.FC<Props> = (props) => {
                 {item.naziv}
             </Title>
             <div className={style.contractGrid}>
-                <p className={style.contractKey}>dobavljac: </p>
+                <p className={style.contractKey}>Dobavljač: </p>
                 <p className={style.contractValue}>{item.dobavljac}</p>
 
                 <p className={style.contractKey}>Status: </p>

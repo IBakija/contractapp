@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
+
+import style from './Contract.module.scss';
+import Title from '../../components/Title/Title';
+
 import { contractData } from '../../shared/types/contractData';
 import { determineStatus } from '../../features/functions/determineStatus';
-import style from './Contract.module.scss';
 import { formatStringDate } from '../../features/functions/formatStringDate';
-import Title from '../../components/Title/Title';
 
 interface Props {
     item: contractData;

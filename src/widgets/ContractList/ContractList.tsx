@@ -3,8 +3,8 @@ import { useState } from 'react';
 import style from './ContractList.module.scss';
 import Contract from '../../entities/Contract/Contract';
 import FilterByName from '../../features/filters/FilterByName';
-
 import FilterByActivity from '../../features/filters/FilterByActivity';
+
 import { contractData } from '../../shared/types/contractData';
 
 const ContractList: React.FC = () => {

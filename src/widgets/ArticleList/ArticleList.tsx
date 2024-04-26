@@ -1,5 +1,6 @@
 import Article from '../../entities/Article/Article';
 import style from './ArticleList.module.scss';
+
 import { articles } from '../../shared/constants/articles';
 
 interface Props {

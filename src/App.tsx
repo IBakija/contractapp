@@ -10,6 +10,8 @@ function App() {
         localStorage.setItem('contracts', JSON.stringify(contracts));
     }
 
+    // TODO: Add error page
+
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />

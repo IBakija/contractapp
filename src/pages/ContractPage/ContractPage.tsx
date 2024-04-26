@@ -7,11 +7,11 @@ import Title from '../../components/Title/Title';
 import style from './ContractPage.module.scss';
 import TextInput from '../../components/TextInput/TextInput';
 import InputLabel from '../../components/InputLabel/InputLabel';
+import Button from '../../components/Button/Button';
 
 import { determineStatus } from '../../features/functions/determineStatus';
 import { formatStringDate } from '../../features/functions/formatStringDate';
 import { contractData } from '../../shared/types/contractData';
-import Button from '../../components/Button/Button';
 
 // TODO: redirect on non-existing id
 const ContractPage: React.FC = () => {
