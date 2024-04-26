@@ -11,6 +11,7 @@ import InputLabel from '../../components/InputLabel/InputLabel';
 import { determineStatus } from '../../features/functions/determineStatus';
 import { formatStringDate } from '../../features/functions/formatStringDate';
 import { contractData } from '../../shared/types/contractData';
+import Button from '../../components/Button/Button';
 
 // TODO: redirect on non-existing id
 const ContractPage: React.FC = () => {
@@ -51,7 +52,7 @@ const ContractPage: React.FC = () => {
             statusButton = (
                 <div>
                     <p>Izmjeni u naručeno</p>
-                    <button onClick={handleClick}>Izmjeni</button>
+                    <Button onClick={handleClick}>Izmjeni</Button>
                 </div>
             );
             break;
@@ -59,7 +60,7 @@ const ContractPage: React.FC = () => {
             statusButton = (
                 <div>
                     <p>Izmjeni u dostavljeno</p>
-                    <button onClick={handleClick}>Izmjeni</button>
+                    <Button onClick={handleClick}>Izmjeni</Button>
                 </div>
             );
             break;
@@ -128,7 +129,7 @@ const ContractPage: React.FC = () => {
                                 id="deliveryDate"
                                 required={true}
                             />
-                            <button>Izmjeni</button>
+                            <Button>Izmjeni</Button>
                         </form>
                         {statusButton}
                     </div>

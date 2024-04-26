@@ -32,7 +32,7 @@
     color: colors.$text-secondary-light;
     border: 1px solid colors.$border-light;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
 
     &:hover {
         color: colors.$text-primary-light;
@@ -41,9 +41,11 @@
 
     @media (prefers-color-scheme: dark) {
         color: colors.$text-secondary-dark;
+        border-color: colors.$border-dark;
 
         &:hover {
             color: colors.$text-primary-dark;
+            border-color: colors.$border-grey-dark;
         }
     }
 }

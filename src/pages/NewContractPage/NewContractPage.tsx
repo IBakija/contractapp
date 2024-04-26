@@ -7,6 +7,7 @@ import InputLabel from '../../components/InputLabel/InputLabel';
 import Title from '../../components/Title/Title';
 
 import { contractData } from '../../shared/types/contractData';
+import Button from '../../components/Button/Button';
 
 const NewContractPage: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
@@ -104,7 +105,7 @@ const NewContractPage: React.FC = () => {
                             required={true}
                         />
                     </div>
-                    <button>Kreiraj</button>
+                    <Button>Kreiraj</Button>
                 </form>
 
                 {submitted ? (

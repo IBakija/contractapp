@@ -1,0 +1,27 @@
+@use '../../shared/global-styles/colors' as colors;
+
+.button {
+    background-color: transparent;
+    border: 1px solid colors.$border-blue-light;
+    border-radius: 3px;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: colors.$text-secondary-light;
+    border: 1px solid colors.$border-light;
+
+    &:hover {
+        color: colors.$text-primary-light;
+        border-color: colors.$border-grey-light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        color: colors.$text-secondary-dark;
+        border-color: colors.$border-dark;
+
+        &:hover {
+            color: colors.$text-primary-dark;
+            border-color: colors.$border-grey-dark;
+        }
+    }
+}
